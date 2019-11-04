@@ -1,0 +1,20 @@
+<h1>Games#score</h1>
+<p>Your word: <%=@name.upcase %></p>
+<ul>
+  <!-- Valid use of grid ? -->
+  <% if @grid_word %>
+    <li class="valid">Score : <%=@result%></li>
+  <% else %>
+    <li class="error">Score :<%=@result%></li>
+    <% @result = 0 %>
+  <% end %>
+  <!-- Valid english word ?  -->
+  <% if @english_word %>
+    <li class="valid"><strong>Congratulations ! </strong><i><%= @name %></i> is a valid english word</li>
+  <% else %>
+    <li class="error">Sorry <i><%= @name %></i> is <strong>NOT</strong> a valid english word</li>
+    <% @result = 0 %>
+  <% end %>
+</ul>
+
+<%= link_to "Play again", "new" %>
